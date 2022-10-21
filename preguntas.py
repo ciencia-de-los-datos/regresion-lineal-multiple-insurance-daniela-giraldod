@@ -93,7 +93,7 @@ def pregunta_03():
     from sklearn.preprocessing import OneHotEncoder
     
 
-    pipeline = Pipeline(
+   pipeline = Pipeline(
         steps=[
             # Paso 1: Construya un column_transformer que aplica OneHotEncoder a las
             # variables categóricas, y no aplica ninguna transformación al resto de
@@ -102,7 +102,8 @@ def pregunta_03():
                 "column_transfomer",
                 make_column_transformer(
                     (OneHotEncoder(),
-                        make_column_selector(dtype_include=object),
+                     ['sex','smoker','region'],
+                        #make_column_selector(dtype_include=object),
                     ),
                     remainder="passthrough",
                 ),
@@ -127,7 +128,7 @@ def pregunta_03():
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        "selectkBest_k": range(1,12),
+        "selectkBest_k": arange(1,12),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
