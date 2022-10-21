@@ -107,7 +107,7 @@ def pregunta_03():
                 make_column_transformer(
                     (
                       OneHotEncoder(),
-                      make_column_transformer(dtype_include=object),
+                      make_column_selector(dtype_include=object),
                     ),
                     remainder="passthrough",
                 ),
