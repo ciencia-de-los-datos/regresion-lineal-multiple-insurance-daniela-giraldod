@@ -43,6 +43,7 @@ def pregunta_01():
     return X, y
 
 
+
 def pregunta_02():
     """
     Preparación de los conjuntos de datos.
@@ -66,7 +67,6 @@ def pregunta_02():
     )
     # Retorne `X_train`, `X_test`, `y_train` y `y_test`
     return X_train, X_test, y_train, y_test
-
 
 def pregunta_03():
     """
