@@ -104,24 +104,24 @@ def pregunta_03():
             # variables categóricas, y no aplica ninguna transformación al resto de
             # las variables.
             (
-         "column_transfomer",
+                "column_transfomer",
                 make_column_transformer(
                     (
-                      OneHotEncoder(),
-                      make_column_selector(dtype_include=object),
+                        OneHotEncoder(),
+                        make_column_selector(dtype_include=object),
                     ),
-                    remainder="drop",
+                    remainder='drop',
                 ),
             ),
             # Paso 2: Construya un selector de características que seleccione las K
             # características más importantes. Utilice la función f_regression.
             (
                 "selectKBest",
-                SelectKBest(score_func=f_regression,k=8),
+                SelectKBest(score_func=f_regression, k=8),
             ),
             # Paso 3: Construya un modelo de regresión lineal.
             (
-                "linearRegression",
+                "model",
                 LinearRegression(),
             ),
         ],
@@ -135,8 +135,7 @@ def pregunta_03():
     param_grid = {
         "model__n_jobs": np.arange(1, 12, 1),
     }
-    
-    
+
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
     # parámetros. Use cv = 5, y como métrica de evaluación el valor negativo del
     # error cuadrático medio.
@@ -144,9 +143,9 @@ def pregunta_03():
         estimator=pipeline,
         param_grid=param_grid,
         cv=5,
-        scoring="neg_mean_squared_error",
+        scoring='neg_mean_squared_error',
         refit=True,
-        return_train_score=True,
+        return_train_score=False,
     )
 
     # Búsque la mejor combinación de regresores
@@ -155,8 +154,11 @@ def pregunta_03():
     # Retorne el mejor modelo
     return gridSearchCV
 
+
 def pregunta_04():
-    """
+  
+
+"""
     Evaluación del modelo
     -------------------------------------------------------------------------------------
     """
