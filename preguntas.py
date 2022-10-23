@@ -98,7 +98,7 @@ def pregunta_03():
 #Cada tupla espera 3 valores separados por comas: primero, el nombre del transformador, que puede ser prácticamente cualquier cosa(pasado como una cadena),
 #segundo es el objeto estimador y el último son las columnas sobre las que deseamos realizar esa operación .
 
-    pipeline = Pipeline(
+     pipeline = Pipeline(
         steps=[
             # Paso 1: Construya un column_transformer que aplica OneHotEncoder a las
             # variables categóricas, y no aplica ninguna transformación al resto de
@@ -107,21 +107,21 @@ def pregunta_03():
                 "column_transfomer",
                 make_column_transformer(
                     (
-                        OneHotEncoder(),
-                        make_column_selector(dtype_include=object),
+                      OneHotEncoder(),
+                      make_column_selector(dtype_include=object),
                     ),
-                    remainder='drop',
+                    remainder="drop",
                 ),
             ),
             # Paso 2: Construya un selector de características que seleccione las K
             # características más importantes. Utilice la función f_regression.
             (
                 "selectKBest",
-                SelectKBest(score_func=f_regression, k=8),
+                SelectKBest(score_func=f_regression),
             ),
             # Paso 3: Construya un modelo de regresión lineal.
             (
-                "model",
+                "linearRegression",
                 LinearRegression(),
             ),
         ],
@@ -133,7 +133,7 @@ def pregunta_03():
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        "model__n_jobs": np.arange(1, 12, 1),
+        "model__n_jobs": arange(1, 12, 1),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
@@ -143,9 +143,9 @@ def pregunta_03():
         estimator=pipeline,
         param_grid=param_grid,
         cv=5,
-        scoring='neg_mean_squared_error',
+        scoring="neg_mean_squared_error",
         refit=True,
-        return_train_score=False,
+        return_train_score=True,
     )
 
     # Búsque la mejor combinación de regresores
