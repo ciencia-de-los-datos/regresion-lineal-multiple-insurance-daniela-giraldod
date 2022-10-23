@@ -92,6 +92,7 @@ def pregunta_03():
     from sklearn.model_selection import GridSearchCV
     from sklearn.pipeline import Pipeline
     from sklearn.preprocessing import OneHotEncoder
+    import numpy as np
 
 #Un ColumnTransformer toma una lista, que contiene tuplas de las transformaciones que deseamos realizar en las diferentes columnas. 
 #Cada tupla espera 3 valores separados por comas: primero, el nombre del transformador, que puede ser prácticamente cualquier cosa(pasado como una cadena),
@@ -132,7 +133,7 @@ def pregunta_03():
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        "model__n_jobs": arange(1, 12, 1),
+        "model__n_jobs": np.arange(1, 12, 1),
     }
     
     
