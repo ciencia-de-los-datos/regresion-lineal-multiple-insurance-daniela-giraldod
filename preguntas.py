@@ -164,9 +164,9 @@ def pregunta_03():
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        "model__n_jobs": arange(1, 12, 1),
+        "selectKBest__k": (1, 11),
     }
-
+    
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
     # parámetros. Use cv = 5, y como métrica de evaluación el valor negativo del
     # error cuadrático medio.
