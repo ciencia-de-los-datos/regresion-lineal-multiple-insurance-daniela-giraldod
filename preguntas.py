@@ -85,10 +85,8 @@ def pregunta_03():
     # Retorne el mejor modelo
     return 
 
-def pregunta_04():
-  
-
-"""
+def pregunta_04():  
+    """
     Evaluación del modelo
     -------------------------------------------------------------------------------------
     """
