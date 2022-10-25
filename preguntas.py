@@ -94,37 +94,6 @@ def pregunta_03():
     from sklearn.preprocessing import OneHotEncoder
     import numpy as np
 
-#Un ColumnTransformer toma una lista, que contiene tuplas de las transformaciones que deseamos realizar en las diferentes columnas. 
-#Cada tupla espera 3 valores separados por comas: primero, el nombre del transformador, que puede ser prácticamente cualquier cosa(pasado como una cadena),
-#segundo es el objeto estimador y el último son las columnas sobre las que deseamos realizar esa operación .
-
-     from pandas.core.arrays.sparse import dtype
-def pregunta_03():
-    """
-    Especificación del pipeline y entrenamiento
-    -------------------------------------------------------------------------------------
-    """
-
-    # Importe make_column_selector
-    # Importe make_column_transformer
-    # Importe SelectKBest
-    # Importe f_regression
-    # Importe LinearRegression
-    # Importe GridSearchCV
-    # Importe Pipeline
-    # Importe OneHotEncoder
-    from sklearn.compose import make_column_selector
-
-
-    from sklearn.compose import make_column_selector
-    from sklearn.compose import make_column_transformer
-    from sklearn.feature_selection import SelectKBest,f_regression
-    from sklearn.linear_model import LinearRegression
-    from sklearn.model_selection import GridSearchCV
-    from sklearn.pipeline import Pipeline
-    from sklearn.preprocessing import OneHotEncoder
-    import numpy as np
-
     #Un ColumnTransformer toma una lista, que contiene tuplas de las transformaciones que deseamos realizar en las diferentes columnas. 
     #Cada tupla espera 3 valores separados por comas: primero, el nombre del transformador, que puede ser prácticamente cualquier cosa(pasado como una cadena),
     #segundo es el objeto estimador y el último son las columnas sobre las que deseamos realizar esa operación .
